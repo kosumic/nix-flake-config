@@ -27,13 +27,10 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # for macos
-    # nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-24.11-darwin";
-    # nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    # nix-darwin = {
-    #   url = "github:lnl7/nix-darwin";
-    #   inputs.nixpkgs.follows = "nixpkgs-darwin";
-    # };
+    nix-darwin = {
+      url = "github:nix-darwin/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # NixOS profiles to optimize settings for different hardware.
     # nixos-hardware.url = "github:NixOS/nixos-hardware/master";
@@ -133,6 +130,8 @@
       inherit inputs;
       system = "x86_64-linux";
     };
+
+    darwinConfigurations = import ./outputs/darwin-conf.nix {inherit inputs;};
 
     checks = forDefaultSystems (
       system: {
