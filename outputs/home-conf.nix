@@ -44,6 +44,8 @@ with inputs; let
     hostSystem ? system,
     hidpi ? false,
     username,
+    profileName ? username,
+    extraModules ? [],
     gui ? false,
     full ? true,
     homed,
@@ -61,6 +63,7 @@ with inputs; let
         inherit hidpi;
         inherit full;
         inherit gui;
+        homeProfile = profileName;
         herdr = inputs.herdr.packages.${hostSystem}.default;
         addons = nur.repos.rycee.firefox-addons;
       };
@@ -85,7 +88,7 @@ with inputs; let
             enable = true;
           };
         }
-      ];
+      ] ++ extraModules;
     };
   mkCloud = hostSystem: let
     username = "kosumi";
@@ -110,6 +113,20 @@ in {
       full = true;
       inherit username;
       homed = "/home/${username}";
+    };
+
+  mini = let
+    username = "kosumi";
+  in
+    mkHome {
+      hostSystem = "aarch64-darwin";
+      hidpi = false;
+      inherit username;
+      profileName = "mini";
+      gui = false;
+      full = false;
+      extraModules = [../home/programs/wezterm/default.nix];
+      homed = "/Users/${username}";
     };
 
   shellhome = let

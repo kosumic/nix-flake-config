@@ -2,8 +2,14 @@
   config,
   pkgs,
   lib,
+  homeProfile,
   ...
 }: let
+  nixDaemonInit = lib.optionalString pkgs.stdenv.isDarwin ''
+    if not set -q __ETC_PROFILE_NIX_SOURCED; and test -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish
+      source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish
+    end
+  '';
   fzfConfig = ''
     set -x FZF_DEFAULT_OPTS "--preview='bat {} --color=always'" \n
     set -x SKIM_DEFAULT_COMMAND "rg --files || fd || find ."
@@ -240,7 +246,7 @@ in {
       # nuco = "nvim ~/.config/nushell/config.nu";
       # hxco = "hx ~/.config/helix/config.toml";
       # alco = "nvim ~/.config/alacritty/alacritty.yml";
-      swim = "home-manager switch --flake '${config.home.homeDirectory}/nixpkgs#${config.home.username}'";
+      swim = "home-manager switch --flake '${config.home.homeDirectory}/nixpkgs#${homeProfile}'";
       shr = "home-manager switch --flake github:KaminariOS/nixpkgs/dev#shellhome --extra-experimental-features nix-command --extra-experimental-features flakes";
       # nico = "nvim ~/.config/nixpkgs/home.nix";
       ll = "eza -l --git";
@@ -299,7 +305,7 @@ in {
       eval (direnv hook fish)
       any-nix-shell fish --info-right | source
     '';
-    shellInit = fishConfig + loadenv;
+    shellInit = nixDaemonInit + fishConfig + loadenv;
   };
 
   xdg.configFile."fish/functions/fish_prompt.fish".text = custom.prompt;

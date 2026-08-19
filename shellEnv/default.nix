@@ -1,6 +1,7 @@
 {
   pkgs,
   full,
+  gui,
   lib,
   config,
   ...
@@ -128,9 +129,10 @@ in {
     };
     tealdeer = {
       enable = true;
+      enableAutoUpdates = gui;
       settings = {
         updates = {
-          auto_update = true;
+          auto_update = gui;
         };
       };
     };

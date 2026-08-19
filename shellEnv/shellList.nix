@@ -73,7 +73,11 @@
     ++ [
       kubetui
       # A simple tui to view & control docker containers
-      oxker
+      (
+        if stdenv.isDarwin
+        then oxker.overrideAttrs (_: {doCheck = false;})
+        else oxker
+      )
       # Linux Kernel Manager and Activity Monitor.
       kmon
       # A fast, simple TUI for interacting with systemd services and their logs.
@@ -286,9 +290,11 @@
     mirrord
   ];
 in
-  defaultShell
-  ++ rustcli
-  # ++ cargoAddons
-  ++ nixAddons
-  ++ lsps
-  ++ cloud
+  lib.filter (lib.meta.availableOn pkgs.stdenv.hostPlatform) (
+    defaultShell
+    ++ rustcli
+    # ++ cargoAddons
+    ++ nixAddons
+    ++ lsps
+    ++ cloud
+  )

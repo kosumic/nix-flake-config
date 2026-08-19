@@ -61,15 +61,18 @@ in {
     stateVersion = "22.05";
     #    packages = defaultPkgs ++ gnomePkgs;
     packages = optionals gui (defaultPkgs ++ gui_apps ++ nixos_app);
-    sessionVariables = {
-      DISPLAY = ":0";
-      EDITOR = "nvim";
-      BROWSER = lib.getExe cfg.webBrowser;
-      TERM_PROGRAM = "WezTerm";
-      TMUX_TMPDIR = "/tmp";
-      QT_SCALE_FACTOR = 2;
-      GDK_SCALE = 2;
-    };
+    sessionVariables =
+      {
+        DISPLAY = ":0";
+        EDITOR = "nvim";
+        TERM_PROGRAM = "WezTerm";
+        TMUX_TMPDIR = "/tmp";
+        QT_SCALE_FACTOR = 2;
+        GDK_SCALE = 2;
+      }
+      // lib.optionalAttrs gui {
+        BROWSER = lib.getExe cfg.webBrowser;
+      };
   };
 
   wayland.windowManager.hyprland.configType = mkIf gui "hyprlang";
