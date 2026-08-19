@@ -11,7 +11,7 @@
                 -- This table will hold the configuration.
                 local config = {}
 
-                require("bar").setup({})
+                dofile(wezterm.home_dir .. "/bar.lua").setup({})
 
                 -- In newer versions of wezterm, use the config_builder which will
                 -- help provide clearer error messages
