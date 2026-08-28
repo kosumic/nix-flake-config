@@ -2,6 +2,7 @@
   pkgs,
   full,
   gui,
+  homeProfile,
   lib,
   config,
   ...
@@ -46,10 +47,14 @@ in {
     sessionVariables = {
       KUBECONFIG = "${homeDirectory}/.kube/config";
     };
-    sessionPath = [
-      "${homeDirectory}/.cargo/bin"
-      "${homeDirectory}/.npm-global/bin"
-    ];
+    sessionPath =
+      [
+        "${homeDirectory}/.cargo/bin"
+        "${homeDirectory}/.npm-global/bin"
+      ]
+      ++ optionals (homeProfile == "mini") [
+        "/Applications/ChatGPT.app/Contents/Resources"
+      ];
   };
   xdg.configFile."nvf/after/plugin/clipboard.lua".text = ''
     vim.opt.clipboard:append("unnamedplus")
