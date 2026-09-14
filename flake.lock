@@ -96,11 +96,11 @@
         "sherpa-onnx": "sherpa-onnx"
       },
       "locked": {
-        "lastModified": 1788683102,
-        "narHash": "sha256-7KAhyB9FNOyn3F0ii0PfDW13yOGV4cTWowGYLIps5w4=",
+        "lastModified": 1788775168,
+        "narHash": "sha256-zY763QObFsZ2MtKQbYRZ1uJ34N0uYygoaCU4IeY03ik=",
         "owner": "xifan2333",
         "repo": "fcitx5-vinput",
-        "rev": "aeb7f4fc1671121123a9c3c15041eb974780b200",
+        "rev": "eaf3a605ee11fb2b5d1399bba0ee328947e857c2",
         "type": "github"
       },
       "original": {
@@ -291,11 +291,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1788650826,
-        "narHash": "sha256-X0yb+XqNkqAFoKFJSxhtidun5gsKxrd0+84CFvQWv9o=",
+        "lastModified": 1788737224,
+        "narHash": "sha256-L54SVSXGCsQzuP/typ6cQt96l0QDUWV2qTP7APl+bsQ=",
         "owner": "ogulcancelik",
         "repo": "herdr",
-        "rev": "9e9bc8a144667a6b7debfd4f0c7a31ff0e11493a",
+        "rev": "4b5e9bda239a0b6903889062d756424578e94691",
         "type": "github"
       },
       "original": {
