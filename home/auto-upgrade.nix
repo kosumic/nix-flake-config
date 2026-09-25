@@ -21,7 +21,10 @@ in
   lib.mkMerge [
     (lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
       systemd.user.services.home-manager-auto-upgrade = {
-        Unit.Description = "Update Home Manager configuration from GitHub";
+        Unit = {
+          Description = "Update Home Manager configuration from GitHub";
+          X-SwitchMethod = "keep-old";
+        };
 
         Service = {
           Type = "oneshot";
