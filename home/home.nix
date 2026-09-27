@@ -64,9 +64,9 @@ in {
     packages =
       (optionals gui (defaultPkgs ++ gui_apps ++ nixos_app))
       ++ optionals pkgs.stdenv.hostPlatform.isDarwin [
-        # macOS Tailscale.app ships its CLI only inside the bundle; expose it on PATH
+        # Use the system daemon explicitly; macOS auto-detection can select Tailscale.app.
         (pkgs.writeShellScriptBin "tailscale" ''
-          exec /Applications/Tailscale.app/Contents/MacOS/Tailscale "$@"
+          exec /run/current-system/sw/bin/tailscale --socket=/var/run/tailscaled.socket "$@"
         '')
       ];
     sessionVariables =

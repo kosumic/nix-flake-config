@@ -51,6 +51,7 @@ in
         domain = "user";
         config = {
           ProgramArguments = [homeManager] ++ arguments;
+          EnvironmentVariables.PATH = "/nix/var/nix/profiles/default/bin:/usr/bin:/bin:/usr/sbin:/sbin";
           ProcessType = "Background";
           StartCalendarInterval = [
             {
