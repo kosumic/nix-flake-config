@@ -5,7 +5,14 @@
 keys:
   - &savior age188c47mvmntpar3jh3ehzdccz6zvz5m230x2rvajw5guep3nr4yrstd88n6
   - &thinker age10r7cjntmr7x534nzfsfqnl6q3qr5tt9fzzhl0gd8ud2fdj5fcq2qu7wlds
+  - &savior_home age1a0u0ffs96ks5ce5d977h2vyew9cmzzcyev5cavnce7wkjcke34ns0cy6l3
 creation_rules:
+  - path_regex: shellEnv/sops/secrets\.yaml$
+    key_groups:
+    - age:
+      - *savior
+      - *thinker
+      - *savior_home
   - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
     key_groups:
     - age:
