@@ -1,7 +1,7 @@
 [files]
 ignore-dot = true
 ignore-files = true
-extend-exclude = ["themes/", "data/", "static-surprises/", "resources/"]
+extend-exclude = ["themes/", "data/", "static-surprises/", "resources/", "shellEnv/sops/secrets.yaml"]
 
 [default]
 binary = false
