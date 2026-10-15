@@ -77,6 +77,8 @@ with inputs; let
               (pkgs.lib.optionals full commonImports)
               ++ [../home/home.nix]
               ++ pkgs.lib.optional gui inputs.stylix.homeModules.stylix;
+
+            programs.opencode.package = inputs.opencode.packages.${hostSystem}.opencode;
           }
           {
             home = {
