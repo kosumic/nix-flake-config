@@ -78,7 +78,14 @@ with inputs; let
               ++ [../home/home.nix]
               ++ pkgs.lib.optional gui inputs.stylix.homeModules.stylix;
 
-            programs.opencode.package = inputs.opencode.packages.${hostSystem}.opencode;
+            programs.opencode.package = inputs.opencode.packages.${hostSystem}.opencode.overrideAttrs (old: {
+              postPatch =
+                (old.postPatch or "")
+                + ''
+                  # v2.0.29 imports this helper, but its Nix source filter omits script/.
+                  install -Dm644 ${inputs.opencode}/script/native-arch.ts script/native-arch.ts
+                '';
+            });
           }
           {
             home = {
