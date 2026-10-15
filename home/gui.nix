@@ -7,7 +7,7 @@
     # i3status
     brightnessctl
     feh
-    zoom-us
+    # zoom-us
     discord
     slack
     telegram-desktop
