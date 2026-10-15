@@ -25,7 +25,7 @@
       pastel
 
       # Rust REPL
-      evcxr
+      # evcxr
 
       wthrr # Weather companion for the terminal
 
