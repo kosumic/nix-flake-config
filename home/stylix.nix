@@ -1,4 +1,15 @@
-{pkgs, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
+  # OpenCode v2 uses cli.json. Keep it writable for preferences and integrations;
+  # apply the declarative theme with v2's supported inline configuration instead.
+  programs.opencode.tui = lib.mkForce {};
+  home.sessionVariables.OPENCODE_CLI_CONFIG_CONTENT = lib.escape ["\""] (builtins.toJSON {
+    theme.name = "stylix";
+  });
+
   stylix = {
     enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/dracula.yaml";
