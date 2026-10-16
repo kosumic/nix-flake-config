@@ -180,9 +180,6 @@ in {
       settings = {
         agent.title.model = "openai/gpt-5.4-mini";
         small_model = "openai/gpt-5.4-mini";
-        plugin = [
-          "opencode-scheduler"
-        ];
         mcp = {
           context7 = {
             type = "local";
