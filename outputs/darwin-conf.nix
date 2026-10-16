@@ -3,6 +3,7 @@
     system = "aarch64-darwin";
 
     modules = [
+      ../system/modules/darwin/tailscale-exit-routes.nix
       inputs.home-manager.darwinModules.home-manager
       ({pkgs, ...}: {
         nixpkgs.overlays = [
@@ -14,6 +15,10 @@
           ((import ../home/overlays/md-toc) {inherit (inputs) gh-md-toc;})
           (import ../home/overlays/ranger)
         ];
+
+        # User configuration is activated independently with home-manager switch.
+        # Keep a system switch from activating this older integrated snapshot.
+        system.activationScripts.postActivation.text = pkgs.lib.mkForce "";
 
         system.primaryUser = "kosumi";
         system.stateVersion = 4;
