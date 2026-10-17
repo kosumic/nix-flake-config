@@ -59,8 +59,11 @@
               ../home/home.nix
               ../home/programs/wezterm/default.nix
             ];
-            home.username = "kosumi";
-            home.homeDirectory = "/Users/kosumi";
+            home = {
+              username = "kosumi";
+              homeDirectory = "/Users/kosumi";
+              packages = [inputs.codex-cli-nix.packages.aarch64-darwin.default];
+            };
           };
         };
       })

@@ -103,6 +103,10 @@ home-manager switch --flake github:KaminariOS/nix-flake-config/dev#shellhome --e
 home-manager switch --flake '/path/to/this/repo#kosumi'
 ```
 
+Codex CLI is included in every Home Manager profile. Its version is pinned by the
+`codex-cli-nix` input in `flake.lock`. To update it, run
+`nix flake update codex-cli-nix`, then switch your Home Manager configuration.
+
 ### NixOS System Configuration
 For full system management:
 

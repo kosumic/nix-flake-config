@@ -38,6 +38,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    codex-cli-nix.url = "github:sadjow/codex-cli-nix";
     opencode.url = "github:anomalyco/opencode/v2.0.29";
     herdr = {
       url = "github:ogulcancelik/herdr";
