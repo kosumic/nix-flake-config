@@ -235,8 +235,6 @@
       # code-rs
 
       # minikube
-      terraform
-
       csvlens
 
       # Simple and flexible tool for managing secrets
