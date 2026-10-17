@@ -39,7 +39,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     codex-cli-nix.url = "github:sadjow/codex-cli-nix";
-    opencode.url = "github:anomalyco/opencode/v2.0.29";
+    opencode.url = "github:anomalyco/opencode/v2.0.26";
     herdr = {
       url = "github:ogulcancelik/herdr";
       inputs.nixpkgs.follows = "nixpkgs";
