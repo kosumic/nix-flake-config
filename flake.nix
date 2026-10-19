@@ -43,7 +43,7 @@
       url = "github:sadjow/claude-code-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    opencode.url = "github:anomalyco/opencode/v2.0.29";
+    opencode.url = "github:anomalyco/opencode/v2.0.27";
     herdr = {
       url = "github:ogulcancelik/herdr";
       inputs.nixpkgs.follows = "nixpkgs";
