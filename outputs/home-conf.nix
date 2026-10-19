@@ -78,7 +78,9 @@ with inputs; let
               ++ [../home/home.nix]
               ++ pkgs.lib.optional gui inputs.stylix.homeModules.stylix;
 
-            home.packages = [inputs.codex-cli-nix.packages.${hostSystem}.default];
+            home.packages =
+              [inputs.codex-cli-nix.packages.${hostSystem}.default]
+              ++ pkgs.lib.optionals full [inputs.claude-code-nix.packages.${hostSystem}.default];
 
             programs.opencode.package = inputs.opencode.packages.${hostSystem}.opencode.overrideAttrs (old: {
               postPatch =
