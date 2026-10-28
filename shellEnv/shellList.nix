@@ -243,6 +243,7 @@
       rage
 
       cloudflared
+      cf
       happy-coder
     ]
     ++ [

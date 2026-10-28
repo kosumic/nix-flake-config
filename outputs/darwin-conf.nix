@@ -62,7 +62,7 @@
             home = {
               username = "kosumi";
               homeDirectory = "/Users/kosumi";
-              packages = [inputs.codex-cli-nix.packages.aarch64-darwin.default];
+              packages = [pkgs.codex];
             };
           };
         };

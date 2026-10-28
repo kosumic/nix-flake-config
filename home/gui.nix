@@ -10,6 +10,7 @@
     # zoom-us
     discord
     slack
+    chatgpt
     telegram-desktop
 
     wireshark
