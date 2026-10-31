@@ -298,7 +298,6 @@ in {
     };
     plugins = [custom.theme fenv bass puffer done];
     interactiveShellInit = ''
-      eval (direnv hook fish)
       any-nix-shell fish --info-right | source
     '';
     shellInit = fishConfig + loadenv;
