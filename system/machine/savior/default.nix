@@ -100,14 +100,6 @@ in {
     };
   };
 
-  # Keep a runaway v2ray-core process from exhausting host memory.
-  systemd.services.v2raya.serviceConfig = {
-    MemoryHigh = "2G";
-    MemoryMax = "4G";
-    MemorySwapMax = "512M";
-    RestartSec = "30s";
-  };
-
   systemd.tmpfiles.rules = [
     "d /run/nvidia/driver-root 0755 root root -"
     "L+ /run/nvidia/driver-root/bin - - - - /host/run/current-system/sw/bin"
