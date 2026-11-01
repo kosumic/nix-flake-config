@@ -37,6 +37,7 @@
         cache-size = 8192;
         prefetch-domain = true;
         response-mode = "fastest-response";
+        force-no-CNAME = true;
 
         server-https = [
           # Prefer censorship-resistant public resolvers.
