@@ -5,7 +5,11 @@
     modules = [
       ../system/modules/darwin/tailscale-exit-routes.nix
       inputs.home-manager.darwinModules.home-manager
-      ({pkgs, ...}: {
+      ({
+        lib,
+        pkgs,
+        ...
+      }: {
         nixpkgs.overlays = [
           (final: prev: {inherit (inputs) fish-bobthefish-theme;})
           inputs.nurpkgs.overlays.default
@@ -23,6 +27,40 @@
           primaryUser = "kosumi";
           stateVersion = 4;
         };
+        launchd.daemons.nix-darwin-auto-upgrade = let
+          flake = "github:KaminariOS/nix-flake-config/dev#mini";
+          logFile = "/var/log/nix-darwin-auto-upgrade.log";
+        in {
+          serviceConfig = {
+            # Stable paths keep system switches from unloading their own updater.
+            ProgramArguments = [
+              "/bin/sh"
+              "-c"
+              ("/bin/wait4path /nix/store && exec "
+                + lib.escapeShellArgs [
+                  "/run/current-system/sw/bin/darwin-rebuild"
+                  "switch"
+                  "--flake"
+                  flake
+                  "--refresh"
+                ])
+            ];
+            EnvironmentVariables = {
+              HOME = "/var/root";
+              PATH = "/nix/var/nix/profiles/default/bin:/usr/bin:/bin:/usr/sbin:/sbin";
+            };
+            ProcessType = "Background";
+            StartCalendarInterval = [
+              {
+                Hour = 0;
+                Minute = 30;
+              }
+            ];
+            StandardOutPath = logFile;
+            StandardErrorPath = logFile;
+          };
+        };
+
         ids.gids.nixbld = 350;
         programs.fish.enable = true;
         users.users.kosumi = {

@@ -108,6 +108,26 @@ Codex CLI and OpenCode use the Nixpkgs packages in every Home Manager profile.
 To update them, run `nix flake update nixpkgs`, then switch your Home Manager
 configuration.
 
+### macOS System Updates
+
+Mini's Home Manager configuration updates daily at midnight. Its separate
+nix-darwin system job runs as root at 00:30 local time, rebuilding and switching
+to `github:KaminariOS/nix-flake-config/dev#mini`. Logs are written to
+`/var/log/nix-darwin-auto-upgrade.log`.
+
+Commit and push the updater configuration to `dev` before activating it, since
+the scheduled job rebuilds from GitHub:
+
+```bash
+sudo /run/current-system/sw/bin/darwin-rebuild switch --flake ~/nixpkgs#mini
+```
+
+To trigger a system update manually:
+
+```bash
+sudo launchctl kickstart system/org.nixos.nix-darwin-auto-upgrade
+```
+
 ### NixOS System Configuration
 For full system management:
 
