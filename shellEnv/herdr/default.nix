@@ -18,6 +18,7 @@
     enable = lib.mkDefault (pkgs.stdenv.hostPlatform.isLinux && homeProfile == "kosumi");
     herdrPackage = herdr;
     botName = lib.mkDefault "invo";
+    useHostnameAsBotName = lib.mkDefault false;
     agent = lib.mkDefault "codex";
     acknowledgementMessage = lib.mkDefault "🪄 Invocateur started {agent} for this task.\n\nTriggered by {comment_url}.";
     reposDirectory = lib.mkDefault "${config.home.homeDirectory}/repos";
