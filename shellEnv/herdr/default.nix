@@ -12,6 +12,9 @@
   home.packages = [herdr];
 
   services.invocateur = {
+    multiplexer = lib.mkDefault "herdr";
+    workspaceName = lib.mkDefault "{repository}#{issue_number} {agent_name}";
+    tabName = lib.mkDefault "{agent_name}";
     enable = lib.mkDefault (pkgs.stdenv.hostPlatform.isLinux && homeProfile == "kosumi");
     herdrPackage = herdr;
     spells = lib.mkDefault ["summon"];
