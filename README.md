@@ -24,6 +24,7 @@ This configuration includes a wide range of modules and tools tailored for produ
 - **Bars and Widgets**: Waybar
 - **Notifications**: Dunst, Mako
 - **Systemd**: Random wallpaper
+- **GitHub agents**: [Invocateur launches coding agents in Herdr from configurable comment spells](https://github.com/kosumic/invocateur)
 - **Network**: NetworkManager, Tailscale, SSH
 
 ### Shell Environment

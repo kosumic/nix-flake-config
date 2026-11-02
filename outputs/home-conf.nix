@@ -65,6 +65,7 @@ with inputs; let
         inherit gui;
         homeProfile = profileName;
         herdr = inputs.herdr.packages.${hostSystem}.default;
+        inherit (inputs) invocateur;
         addons = nur.repos.rycee.firefox-addons;
       };
 

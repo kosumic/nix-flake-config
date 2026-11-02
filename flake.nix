@@ -46,6 +46,10 @@
       url = "github:ogulcancelik/herdr";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    invocateur = {
+      url = "github:kosumic/invocateur";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # agenix = {
     #   inputs.nixpkgs.follows = "nixpkgs";

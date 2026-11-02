@@ -345,6 +345,26 @@
         "type": "github"
       }
     },
+    "invocateur": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1793591391,
+        "narHash": "sha256-sKWeWFYIag69aqXAhFC3FugyjfeE6jIgKNZmZ5tSPbA=",
+        "owner": "kosumic",
+        "repo": "invocateur",
+        "rev": "faee51b22937ec421d64e6936dd1639da8ff2a1e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kosumic",
+        "repo": "invocateur",
+        "type": "github"
+      }
+    },
     "nix-darwin": {
       "inputs": {
         "nixpkgs": [
@@ -505,6 +525,7 @@
         "gh-md-toc": "gh-md-toc",
         "herdr": "herdr",
         "home-manager": "home-manager",
+        "invocateur": "invocateur",
         "nix-darwin": "nix-darwin",
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs",
