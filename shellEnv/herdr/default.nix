@@ -16,6 +16,7 @@
     herdrPackage = herdr;
     spells = lib.mkDefault ["summon"];
     agent = lib.mkDefault "codex";
+    acknowledgementMessage = lib.mkDefault "🪄 Invocateur started {agent} for this task.\n\nTriggered by {comment_url}.";
     reposDirectory = lib.mkDefault "${config.home.homeDirectory}/repos";
     pollInterval = lib.mkDefault 60;
   };
