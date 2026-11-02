@@ -17,7 +17,7 @@
     tabName = lib.mkDefault "{agent_name}";
     enable = lib.mkDefault (pkgs.stdenv.hostPlatform.isLinux && homeProfile == "kosumi");
     herdrPackage = herdr;
-    spells = lib.mkDefault ["summon"];
+    botName = lib.mkDefault "invo";
     agent = lib.mkDefault "codex";
     acknowledgementMessage = lib.mkDefault "🪄 Invocateur started {agent} for this task.\n\nTriggered by {comment_url}.";
     reposDirectory = lib.mkDefault "${config.home.homeDirectory}/repos";
