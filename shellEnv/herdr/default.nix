@@ -20,6 +20,12 @@
     botName = lib.mkDefault "invo";
     useHostnameAsBotName = lib.mkDefault true;
     agent = lib.mkDefault "codex";
+    agentArgs = lib.mkDefault [
+      "--model"
+      "gpt-6.1-sol"
+      "-c"
+      "model_reasoning_effort=\"high\""
+    ];
     acknowledgementMessage = lib.mkDefault "🪄 [Invocateur](https://github.com/kosumic/invocateur) started {agent} for this task.\n\nTriggered by {comment_url}.";
     reposDirectory = lib.mkDefault "${config.home.homeDirectory}/repos";
     pollInterval = lib.mkDefault 60;
