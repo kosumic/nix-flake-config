@@ -352,11 +352,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1793621136,
-        "narHash": "sha256-jeejlYPrmXKlaGVDwqJLKYMXk+SnpgF0unrBLdQ2VZg=",
+        "lastModified": 1793714135,
+        "narHash": "sha256-101/ouPit4OHXnH0HCYlse7ldryYXNIWEQLYyrig9jI=",
         "owner": "kosumic",
         "repo": "invocateur",
-        "rev": "04e73bfab00294b2bbdf1aa2def7f66e1f3714bc",
+        "rev": "68357b3fd59f4ed99f859c2ecb861dc694ce6a09",
         "type": "github"
       },
       "original": {
