@@ -14,7 +14,7 @@
   services.invocateur = {
     multiplexer = lib.mkDefault "herdr";
     workspaceName = lib.mkDefault "{repository}#{issue_number} {agent_name}";
-    tabName = lib.mkDefault "{agent_name}";
+    tabName = lib.mkDefault "issue-{comment_id}";
     enable = lib.mkDefault (pkgs.stdenv.hostPlatform.isLinux && homeProfile == "kosumi");
     herdrPackage = herdr;
     botName = lib.mkDefault "invo";
