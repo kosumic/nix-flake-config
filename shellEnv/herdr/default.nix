@@ -27,6 +27,7 @@
       "model_reasoning_effort=\"high\""
     ];
     acknowledgementMessage = lib.mkDefault "🪄 [Invocateur](https://github.com/kosumic/invocateur) started {agent} for this task.\n\nTriggered by {comment_url}.";
+    ciRepositories = ["whip" "GoVue" "invocateur"];
     reposDirectory = lib.mkDefault "${config.home.homeDirectory}/repos";
     pollInterval = lib.mkDefault 60;
   };
