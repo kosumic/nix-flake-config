@@ -13,7 +13,10 @@
         "--exit-node-allow-lan-access=true"
       ];
     };
-    v2raya.enable = true;
+    v2raya = {
+      enable = true;
+      package = pkgs.callPackage ../packages/v2raya.nix {};
+    };
 
     resolved = {
       enable = true;
@@ -70,4 +73,6 @@
 
     postgresql.enable = false;
   };
+  # The manager stops its core before systemd signals remaining processes.
+  systemd.services.v2raya.serviceConfig.KillMode = "mixed";
 }
