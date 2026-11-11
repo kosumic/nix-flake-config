@@ -136,6 +136,9 @@ in {
       gui = false;
       full = false;
       homed = "/Users/${username}";
+      extraModules = [
+        ({pkgs, ...}: {home.packages = [pkgs.chatgpt];})
+      ];
     };
 
   shellhome = let

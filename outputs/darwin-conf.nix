@@ -19,6 +19,7 @@
           ((import ../home/overlays/md-toc) {inherit (inputs) gh-md-toc;})
           (import ../home/overlays/ranger)
         ];
+        nixpkgs.config.allowUnfreePredicate = pkg: lib.getName pkg == "chatgpt";
 
         system = {
           # User configuration is activated independently with home-manager switch.
@@ -100,7 +101,7 @@
             home = {
               username = "kosumi";
               homeDirectory = "/Users/kosumi";
-              packages = [pkgs.codex];
+              packages = [pkgs.codex pkgs.chatgpt];
             };
           };
         };
