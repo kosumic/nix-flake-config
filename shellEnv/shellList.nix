@@ -8,8 +8,8 @@
   rustcli = with pkgs; (optionals full [
       # Put a rainbow in everything you `cat` to the console. Like lolcat
       dotacat
-      # email client
-      himalaya
+      # Email client disabled: the pinned package fails to build without libgit2.
+      # himalaya
 
       # aichat
       argc
@@ -195,7 +195,7 @@
       xclip
       clang-tools
       rr
-      taskwarrior-tui
+      # taskwarrior-tui # Disabled together with Taskwarrior.
       dmidecode
       gptfdisk
 

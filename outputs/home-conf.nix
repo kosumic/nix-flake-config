@@ -27,6 +27,17 @@ with inputs; let
 
       overlays = [
         fishOverlay
+        (final: prev: {
+          # The Rust setup hook requires system libraries missing from these packages.
+          codex = prev.codex.overrideAttrs (oldAttrs: {
+            buildInputs =
+              (oldAttrs.buildInputs or [])
+              ++ [final.aws-lc final.zstd final.sqlite final.oniguruma];
+          });
+          tectonic-unwrapped = prev.tectonic-unwrapped.overrideAttrs (oldAttrs: {
+            buildInputs = (oldAttrs.buildInputs or []) ++ [final.aws-lc];
+          });
+        })
         nurpkgs.overlays.default
         # (import ../overlay.nix)
         #neovim-flake.overlays.${system}.default

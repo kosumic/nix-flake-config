@@ -66,7 +66,8 @@ in {
     };
     taskwarrior = {
       package = pkgs.taskwarrior3;
-      enable = true;
+      # Disabled until the pinned package's SQLite linking failure is fixed.
+      enable = false;
       dataLocation = "${config.home.homeDirectory}/.task";
       config = {
         confirmation = false;
