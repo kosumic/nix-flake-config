@@ -15,7 +15,7 @@ This configuration includes a wide range of modules and tools tailored for produ
 ### Programs
 - **Terminals**: WezTerm
 - **Editors**: Neovim (with custom Lua config)
-- **Browsers**: Brave(default), Google Chrome, Firefox
+- **Browsers**: Google Chrome(default), Firefox
 - **Development Tools**: Git, GitUI, Fish shell, Starship prompt
 - **Utilities**: Yazi(file manager), Okular(PDF viewer)
 

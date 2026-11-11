@@ -28,7 +28,6 @@
     # jetbrains.idea-ultimate
     # jetbrains.rider
     google-chrome
-    brave
     rclone
     # seahorse
     pulseaudio

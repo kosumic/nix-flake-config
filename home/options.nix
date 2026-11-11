@@ -75,7 +75,7 @@
       terminal = lib.mkPackageOption pkgs "terminal emulator" {default = ["wezterm"];};
       terminalEditor = lib.mkPackageOption pkgs "terminal text editor" {default = ["neovim"];};
       videoPlayer = lib.mkPackageOption pkgs "video player" {default = ["mpv"];};
-      webBrowser = lib.mkPackageOption pkgs "web browser" {default = ["brave"];};
+      webBrowser = lib.mkPackageOption pkgs "web browser" {default = ["google-chrome"];};
     };
 
     desktop = {

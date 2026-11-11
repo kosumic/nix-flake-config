@@ -175,7 +175,7 @@ in {
         always = false;
       }
       {
-        command = "swaymsg 'workspace 2; exec brave'";
+        command = "swaymsg 'workspace 2; exec ${lib.getExe cfg.defaultApps.webBrowser}'";
         always = false;
       }
       # {
@@ -267,7 +267,7 @@ in {
       assign [app_id="org.wezfurlong.wezterm"] workspace number 1
       assign [class="chrome"] workspace number 2
       assign [app_id="firefox"] workspace number 2
-      assign [app_id="brave"] workspace number 2
+      assign [app_id="google-chrome"] workspace number 2
       assign [class="clion"] workspace number 3
       assign [class="idea"] workspace number 3
       assign [app_id="org.kde.okular"] workspace number 4
